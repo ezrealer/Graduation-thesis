@@ -1,5 +1,9 @@
 # 论文V1.0——搜索引擎
-[TOC] ## 第1章 绪论 ### 1.1 搜索引擎简介
+[TOC] 
+## 第1章 绪论 
+
+### 1.1 搜索引擎简介
+
 随着因特网的迅猛发展、Web信息的增加，用户要在信息的海洋里查找信息，就像大海捞针一样，搜索引擎技术恰好解决了这一难题（它可以为用户提供信息检索服务）。目前，搜索引擎技术正成为计算机工业界和学术界争相研究、开发的对象。 **【摘抄自——[专业搜索引擎的研究与设计](http://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&dbname=CMFD0506&filename=2005040756.nh&uid=WEEvREcwSlJHSldRa1FhdXNXYXFuaVlxTFhDWC8zRVJGKzZMTWlrVnMyMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&v=MDAxMzNaRWJQSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUkwyZVp1UnFGeS9oVTczTFYxMjdHN084SHRiSnE=)】** Internet上面的信息庞大，并且没有规律，链接就像连接各个信息之间的桥梁，搜索引擎就像是一张地图，通过这张地图就能找到需要信息所在的位置。搜索引擎是通过人工手动方式或者具有单一功能的计算机程序在互联网上收集整理信息，通过一定的特殊方式对这些信息进行处理，用户通过输入查询信息并提交，计算机程序处理查询信息，通过相关算法产生查询结果，将查询结果按照预先设置的排序算法整理后返回给用户。从用户角度来说，用户通过查询框输入查询信息，便可以获得需要查询信息的列表，通过信息列表可以方便的访问包含该信息的完整页面。从计算机的角度来说，计算机做了大量的后台工作，包括获取网络信息、分析提取信息、建立索引、分析查询词、查询信息、返回信息排序等各种复杂工作。 **【摘抄自——[基于Solr的搜索引擎核心技术研究与应用](http://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&dbname=CMFD201402&filename=1013296472.nh&uid=WEEvREcwSlJHSldRa1FhdXNXYXFuaVlxTFhDWC8zRVJGKzZMTWlrVnMyMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&v=MDk1NDd4R05YTHJaRWJQSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUkwyZVp1UnFGeS9oVjc3SlZGMjZIYkc=)】** ## 第2章 技术理论 ### 2.1 垂直搜索系统的性能指标
 数据采集和用户查询的效率是垂直搜索引擎系统至关重要的性能指标。垂直搜索引擎系统和传统的搜索引擎系统相似，要完成的基本任务就是：在可以接受的时间内返回一个最新领域内网页信息的与用户查询匹配的有序列表。这里面有三个需要重视的点：
 * <b>可以接受的时间：</b>一般指垂直搜索引擎的响应时间，有研究[1]指出，作为Web公共服务，大型搜索引擎的响应时间不应超过3秒，垂直搜索引擎由于返回的网页信息列表与用户感兴趣的领域知识相关度较高，用户可以接受的系统响应时间也相对比较长，但是响应时间也应该保持在“秒”的量级，本文认为，一个高效的垂直搜索引擎系统响应时间不应该超过5秒。
