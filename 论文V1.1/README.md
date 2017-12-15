@@ -1,5 +1,4 @@
 # 论文V1.0——搜索引擎
-[TOC]
 
 ## 第1章 绪论
 
@@ -12,9 +11,9 @@ Internet上面的信息庞大，并且没有规律，链接就像连接各个信
 
 ### 2.1 垂直搜索系统的性能指标
 数据采集和用户查询的效率是垂直搜索引擎系统至关重要的性能指标。垂直搜索引擎系统和传统的搜索引擎系统相似，要完成的基本任务就是：在可以接受的时间内返回一个最新领域内网页信息的与用户查询匹配的有序列表。这里面有三个需要重视的点：
-* **可以接受的时间：**一般指垂直搜索引擎的响应时间，有研究[1]指出，作为Web公共服务，大型搜索引擎的响应时间不应超过3秒，垂直搜索引擎由于返回的网页信息列表与用户感兴趣的领域知识相关度较高，用户可以接受的系统响应时间也相对比较长，但是响应时间也应该保持在“秒”的量级，本文认为，一个高效的垂直搜索引擎系统响应时间不应该超过5秒。
-* **最新领域内网页信息：**垂直搜索引擎的信息和数据都是从互联网上采集成的，如何尽量保证这些信息数据是最新的，就要求垂直搜索引擎索引的信息采集系统数据采集是高效、增量式的。
-* **与用户查询匹配的有序列表：**在传统的搜索引擎中，“与用户匹配”一般就是指网页包含用户查询的关键词（中文查询需要分词后用多个关键词同时匹配），然而垂直搜索引擎由于数据源较为单一，数据与领域信息高度相关且高度集成，可以适当调整“与用户查询匹配”的定义，在一定的语义范围内，不包含用户查询关键词的网页或是数据条目也可以返回给用户，以自动拓展用户查询的语义。此时，我们需要一个完全不同的“用户查询匹配度”的排序方法，而且这个排序方法必须同时是高效的。
+* <b>可以接受的时间：</b>一般指垂直搜索引擎的响应时间，有研究[1]指出，作为Web公共服务，大型搜索引擎的响应时间不应超过3秒，垂直搜索引擎由于返回的网页信息列表与用户感兴趣的领域知识相关度较高，用户可以接受的系统响应时间也相对比较长，但是响应时间也应该保持在“秒”的量级，本文认为，一个高效的垂直搜索引擎系统响应时间不应该超过5秒。
+* <b>最新领域内网页信息：</b>垂直搜索引擎的信息和数据都是从互联网上采集成的，如何尽量保证这些信息数据是最新的，就要求垂直搜索引擎索引的信息采集系统数据采集是高效、增量式的。
+* <b>与用户查询匹配的有序列表：</b>在传统的搜索引擎中，“与用户匹配”一般就是指网页包含用户查询的关键词（中文查询需要分词后用多个关键词同时匹配），然而垂直搜索引擎由于数据源较为单一，数据与领域信息高度相关且高度集成，可以适当调整“与用户查询匹配”的定义，在一定的语义范围内，不包含用户查询关键词的网页或是数据条目也可以返回给用户，以自动拓展用户查询的语义。此时，我们需要一个完全不同的“用户查询匹配度”的排序方法，而且这个排序方法必须同时是高效的。
 
 垂直搜索引擎面向的是海量的Web网页数据，与现代大规模、高性能的搜索引擎相同，采取三段式的工作流程，即网页数据采集、预处理和查询服务。
 因此，高效的垂直搜索引擎必须具备以下三个特征：
@@ -64,7 +63,7 @@ username=aa&password=1234
 ```
 （3）响应：服务器接收到请求后，给客户端返回状态行信息，其中包括使用的HTTP协议版本号、一个成功或者错误的应答代码和一些MIME信息（包括服务器信息、实体信息和可能的内容）。
 HTTP响应信息：
-···json
+```json
 HTTP/1.1 200 OK
 Date: Sun, 17 Mar 2013 08:12:54 GMT
 Server: Apache/2.2.8 (Win32) PHP/5.2.5
@@ -77,7 +76,7 @@ Content-Length: 4393
 Keep-Alive: timeout=5, max=100
 Connection: Keep-Alive
 Content-Type: text/html; charset=utf-8
-···
+```
 （4）断开：一旦响应信息发出，Server关闭TCP/IP会话，完成事务处理全过程。HTTP的一个重要特点就是每个请求和其他请求是独立的。 **【摘抄自——[垂直搜索引擎若干问题研究](http://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CDFD&dbname=CDFD1214&filename=1012330814.nh&uid=WEEvREcwSlJHSldRa1Fhb09jMjVzQlJaVHFiV0lXVmdJdFlmRUt2aVhNWT0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&v=MjQ3ODM2SExDN0h0bk5xNUViUElSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVJMMmVadVJxRkNubVc3M1BWRjI=)】**
 
 ### 2.3 搜索引擎的基本结构
@@ -162,7 +161,6 @@ JQuery是一个快速、简短、特征丰富的JavaScript库，它可以适用�
 
 Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera等。这个工具的主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。测试系统功能——创建回归测试检验软件功能和用户需求。支持自动录制动作和自动生成 .Net、Java、Perl等不同语言的测试脚本。
 
-
 ## 第4章 测试
 
 ### 4.1 DNS解析优化
@@ -224,8 +222,8 @@ elasticsearch5.6.4必需要jdk1.8版本，后续简称es。部署前需要首先
 * 3、建立运行es的用户
   ```
   adduser elas
-passwd elas 设定密码
-chown -R elas /opt/elasticsearch-5.6.4 //将文件夹的所有权给elas用户
+  passwd elas 设定密码
+  chown -R elas /opt/elasticsearch-5.6.4 //将文件夹的所有权给elas用户
   ```
 * 4、修改配置文件，这个步骤在三台服务器上执行不同的操作
 
@@ -252,24 +250,24 @@ chown -R elas /opt/elasticsearch-5.6.4 //将文件夹的所有权给elas用户
 
 	#在192.168.1.128上
 	cluster.name: elas-1
-    node.name: hadoop2
-    network.host: 192.168.1.241
-    node.master: true
-    node.data: true
-    http.cors.enabled: true
-    http.cors.allow-origin: "*"
-    discovery.zen.ping.unicast.hosts: ["192.168.1.164","192.168.1.128","192.168.1.110"]
+    	node.name: hadoop2
+    	network.host: 192.168.1.241
+    	node.master: true
+    	node.data: true
+    	http.cors.enabled: true
+    	http.cors.allow-origin: "*"
+    	discovery.zen.ping.unicast.hosts: ["192.168.1.164","192.168.1.128","192.168.1.110"]
 
-    #在192.168.1.110上
-    cluster.name: elas-1
-    node.name: hadoop3
-    network.host: 192.168.1.242
-    #不是主节点
-    node.master: false
-    node.data: true
-    http.cors.enabled: true
-    http.cors.allow-origin: "*"
-    discovery.zen.ping.unicast.hosts: ["192.168.1.164","192.168.1.128","192.168.1.110"]
+    	#在192.168.1.110上
+    	cluster.name: elas-1
+    	node.name: hadoop3
+    	network.host: 192.168.1.242
+    	#不是主节点
+    	node.master: false
+    	node.data: true
+    	http.cors.enabled: true
+    	http.cors.allow-origin: "*"
+    	discovery.zen.ping.unicast.hosts: ["192.168.1.164","192.168.1.128","192.168.1.110"]
     ```
 * 5、启动
 切换到elas用户
@@ -280,10 +278,6 @@ su - elas
     ```
     cd /opt/elasticsearch-5.6.4
     ```
-
-
-
-
 
 ## 第5章 总结
 
@@ -305,8 +299,6 @@ su - elas
 [8]  RFC 7540 - Hypertext Transfer Protocol Version 2 (HTTP/2). IETF. May 2015 [14 May 2015].
 
 [9] 垂直搜索引擎分类索引系统的设计与实现[D]. 齐鹏.大连海事大学 2010
-
-
 
 ## 致谢
 
